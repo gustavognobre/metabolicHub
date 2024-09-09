@@ -1,100 +1,238 @@
+"use client";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { FaAddressCard, FaHandsHelping, FaRegEye } from "react-icons/fa";
+
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+    <div className="bg-gradient-to-r from-primary to-blue-500 min-h-screen flex flex-col items-center justify-center font-montserrat">
+      {/* Header */}
+      <header className="w-full py-6 flex flex-col md:flex-row justify-between items-center px-4 lg:px-20">
         <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
+          src="/metabolichubnameframe.png"
+          alt="MetabolicHub Logo"
+          width={200}
+          height={200}
+          className="transition-transform transform hover:scale-105"
         />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+        <nav className="mt-4 md:mt-0">
+          <ul className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6">
+            <li>
+              <a
+                href="#features"
+                className="text-lg text-white hover:text-gray-300 transition-colors"
+              >
+                Funcionalidades
+              </a>
+            </li>
+            <li>
+              <a
+                href="#testimonials"
+                className="text-lg text-white hover:text-gray-300 transition-colors"
+              >
+                Depoimentos
+              </a>
+            </li>
+            <li>
+              <a
+                href="#contact"
+                className="text-lg text-white hover:text-gray-300 transition-colors"
+              >
+                Contato
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </header>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+      {/* Hero Section */}
+      <section className="text-center flex flex-col items-center mt-8 md:mt-16 lg:mt-24">
+        <motion.h2
+          className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white"
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          O Melhor Sistema para Monitoramento de Saúde
+        </motion.h2>
+        <motion.p
+          className="text-lg md:text-xl lg:text-2xl text-gray-100 mt-4 max-w-3xl"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.2 }}
+        >
+          O MetabolicHub é a solução ideal para auxiliar e acompanhar pessoas
+          com síndromes metabólicas e doenças endócrinas. Oferecemos um controle
+          total, eficiência e uma experiência intuitiva para o gerenciamento de
+          sua saúde.
+        </motion.p>
+        <motion.button
+          className="mt-6 bg-white ext-primary font-bold py-3 px-6 rounded-full hover:bg-gray-200 transition-colors"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          Comece Agora
+        </motion.button>
+        {/* Aumentando o espaço abaixo do botão */}
+        <div className="mb-12 md:mb-20"></div>
+      </section>
+
+      {/* Features Section */}
+      <section id="features" className="py-16 lg:py-24 bg-gray-100 w-full">
+        <div className="max-w-7xl mx-auto px-4 lg:px-8">
+          <motion.h3
+            className="text-3xl md:text-4xl font-bold text-center text-primary"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
           >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            Funcionalidades de Destaque
+          </motion.h3>
+          <div className=" mt-8 md:mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Feature Item */}
+            <motion.div
+              className="p-6 md:p-8 bg-white rounded-lg shadow-lg text-center"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <div className="flex items-center justify-center p-6">
+                <FaRegEye
+                  className="text-gray-600 hover:text-gray-800 transition-colors duration-300"
+                  size={80}
+                />
+              </div>
+              <h4 className="text-lg md:text-xl font-semibold mt-4">
+                Monitoramento Preciso
+              </h4>
+              <p className="text-gray-600 mt-2">
+                Acompanhe sua saúde com dados precisos e em tempo real para uma
+                gestão eficiente das condições metabólicas e endócrinas.
+              </p>
+            </motion.div>
+            {/* Other Features */}
+            <motion.div
+              className="p-6 md:p-8 bg-white rounded-lg shadow-lg text-center"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <div className="flex items-center justify-center p-6">
+                <FaAddressCard
+                  className="text-gray-600 hover:text-gray-800 transition-colors duration-300"
+                  size={80}
+                />
+              </div>
+              <h4 className="text-lg md:text-xl font-semibold mt-4">
+                Interface Amigável
+              </h4>
+              <p className="text-gray-600 mt-2">
+                Navegue com facilidade através de uma interface intuitiva e
+                fácil de usar, desenvolvida pensando no seu conforto.
+              </p>
+            </motion.div>
+            <motion.div
+              className="p-6 md:p-8 bg-white rounded-lg shadow-lg text-center"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <div className="flex items-center justify-center p-6">
+                <FaHandsHelping
+                  className="text-gray-600 hover:text-gray-800 transition-colors duration-300"
+                  size={80}
+                />
+              </div>
+              <h4 className="text-lg md:text-xl font-semibold mt-4">
+                Suporte Dedicado
+              </h4>
+              <p className="text-gray-600 mt-2">
+                Receba suporte contínuo de nossa equipe especializada para
+                resolver qualquer dúvida ou problema que você possa ter.
+              </p>
+            </motion.div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </section>
+
+      {/* Testimonials Section */}
+      <section
+        id="testimonials"
+        className="py-16 lg:py-24 bg-gradient-to-r from-primary to-blue-500 w-full text-white"
+      >
+        <div className="max-w-7xl mx-auto px-4 lg:px-8">
+          <motion.h3
+            className="text-3xl md:text-4xl font-bold text-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+          >
+            O que Nossos Usuários Dizem
+          </motion.h3>
+          <div className="mt-8 md:mt-12 flex flex-col lg:flex-row justify-center items-center space-y-8 lg:space-y-0 lg:space-x-8">
+            {/* Testimonial 1 */}
+            <motion.div
+              className="bg-white text-primary p-6 md:p-8 rounded-lg shadow-lg max-w-sm"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <p className="text-lg md:text-xl">
+                "O MetabolicHub mudou a forma como gerencio minha saúde. A
+                precisão dos dados e a facilidade de uso são excepcionais!"
+              </p>
+              <p className="text-right mt-4">- João Silva</p>
+            </motion.div>
+            {/* Testimonial 2 */}
+            <motion.div
+              className="bg-white text-primary p-6 md:p-8 rounded-lg shadow-lg max-w-sm"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <p className="text-lg md:text-xl">
+                "Um sistema indispensável para qualquer pessoa com condições
+                metabólicas. O suporte é fantástico e a interface é extremamente
+                amigável!"
+              </p>
+              <p className="text-right mt-4">- Maria Oliveira</p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section
+        id="contact"
+        className="py-16 lg:py-24 bg-gray-100 w-full text-center"
+      >
+        <div className="max-w-3xl mx-auto px-4">
+          <motion.h3
+            className="text-3xl md:text-4xl font-bold text-primary"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+          >
+            Pronto para Transformar Seu Monitoramento de Saúde?
+          </motion.h3>
+          <p className="text-lg md:text-xl text-gray-600 mt-4">
+            Entre em contato conosco para saber mais sobre como o MetabolicHub
+            pode ajudar você a alcançar uma saúde melhor e mais equilibrada.
+          </p>
+          <motion.button
+            className="mt-6 bg-primary text-white font-bold py-3 px-6 rounded-full hover:bg-primary transition-colors"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Fale Conosco
+          </motion.button>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="w-full py-6 text-center text-white bg-gradient-to-r from-primary to-blue-500">
+        <p>&copy; 2024 MetabolicHub. Todos os direitos reservados.</p>
       </footer>
     </div>
   );
