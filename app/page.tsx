@@ -1,51 +1,25 @@
 "use client";
-import Image from "next/image";
-import { motion } from "framer-motion";
-import { FaAddressCard, FaHandsHelping, FaRegEye } from "react-icons/fa";
 
+import { useState } from "react";
+import Image from "next/image";
+import { FaAddressCard, FaBars, FaHandsHelping, FaRegEye, FaTimes } from "react-icons/fa";
+import { motion } from "framer-motion";
+import { LoginButton } from "@/components/auth/login-button";
+import NavbarHome from "@/components/home/navbarhome";
 
 export default function Home() {
-  return (
-    <div className="bg-gradient-to-r from-primary to-blue-500 min-h-screen flex flex-col items-center justify-center font-montserrat">
-      {/* Header */}
-      <header className="w-full py-6 flex flex-col md:flex-row justify-between items-center px-4 lg:px-20">
-        <Image
-          src="/metabolichubnameframe.png"
-          alt="MetabolicHub Logo"
-          width={200}
-          height={200}
-          className="transition-transform transform hover:scale-105"
-        />
-        <nav className="mt-4 md:mt-0">
-          <ul className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6">
-            <li>
-              <a
-                href="#features"
-                className="text-lg text-white hover:text-gray-300 transition-colors"
-              >
-                Funcionalidades
-              </a>
-            </li>
-            <li>
-              <a
-                href="#testimonials"
-                className="text-lg text-white hover:text-gray-300 transition-colors"
-              >
-                Depoimentos
-              </a>
-            </li>
-            <li>
-              <a
-                href="#contact"
-                className="text-lg text-white hover:text-gray-300 transition-colors"
-              >
-                Contato
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </header>
+  const [isMenuOpen, setMenuOpen] = useState(false);
 
+  const toggleMenu = () => {
+    setMenuOpen(!isMenuOpen);
+  };
+
+  return (
+    <div className="bg-gradient-to-r from-primary to-blue-500 min-h-screen flex flex-col">
+      {/* Header */}
+      <header className="w-full py-6 px-4 lg:px-20 flex items-center justify-between bg-white bg-opacity-70 backdrop-blur-lg relative">
+        <NavbarHome/>
+      </header>
       {/* Hero Section */}
       <section className="text-center flex flex-col items-center mt-8 md:mt-16 lg:mt-24">
         <motion.h2
@@ -67,13 +41,15 @@ export default function Home() {
           total, eficiência e uma experiência intuitiva para o gerenciamento de
           sua saúde.
         </motion.p>
-        <motion.button
-          className="mt-6 bg-white ext-primary font-bold py-3 px-6 rounded-full hover:bg-gray-200 transition-colors"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          Comece Agora
-        </motion.button>
+        <LoginButton>
+          <motion.button
+            className="mt-6 bg-white text-primary font-bold py-3 px-6 rounded-full hover:bg-gray-200 transition-colors"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Comece Agora
+          </motion.button>
+        </LoginButton>
         {/* Aumentando o espaço abaixo do botão */}
         <div className="mb-12 md:mb-20"></div>
       </section>
@@ -89,7 +65,7 @@ export default function Home() {
           >
             Funcionalidades de Destaque
           </motion.h3>
-          <div className=" mt-8 md:mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="mt-8 md:mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Feature Item */}
             <motion.div
               className="p-6 md:p-8 bg-white rounded-lg shadow-lg text-center"
@@ -221,7 +197,7 @@ export default function Home() {
             pode ajudar você a alcançar uma saúde melhor e mais equilibrada.
           </p>
           <motion.button
-            className="mt-6 bg-primary text-white font-bold py-3 px-6 rounded-full hover:bg-primary transition-colors"
+            className="mt-6 bg-primary text-white font-bold py-3 px-6 rounded-full hover:bg-primary-dark transition-colors"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
