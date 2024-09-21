@@ -1,4 +1,4 @@
-import LoginForm from "@/components/auth/login-form";
+import RegisterForm from "@/components/auth/register-form";
 
 const RegisterPage = () => {
   return (
@@ -9,7 +9,7 @@ const RegisterPage = () => {
       {/* Coluna direita */}
       <div className="flex flex-col justify-center items-center px-8 lg:px-16 h-screen lg:h-full">
         <div className="w-full max-w-md">
-          <LoginForm />
+          <RegisterForm />
         </div>
       </div>
     </div>

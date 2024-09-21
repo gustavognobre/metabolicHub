@@ -3,6 +3,14 @@ import * as z from "zod";
 // Definindo os tipos de arquivos de imagem permitidos
 const imageTypes = ["image/jpeg", "image/png", "image/gif"];
 
+export const LoginSchema = z.object({
+  email: z.string().email({
+      message: "E-mail inválido!"
+  }),
+  password: z.string().min(8,
+      { message: "Senha inválida!" })
+});
+
 export const RegisterSchema = z.object({
   name: z.string().min(1, {
     message: "O nome é obrigatório.",

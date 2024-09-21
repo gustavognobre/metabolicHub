@@ -5,10 +5,9 @@ export default function RootLayout({
 }>) {
   return (
     <div
-      className="h-screen w-screen bg-cover bg-center bg-[url('/bg-login-register-small.png')] lg:bg-[url('/bg-login-register.jpg')]"
+      className="h-screen w-screen bg-cover bg-center bg-fixed bg-[url('/bg-login-register-small.png')] lg:bg-[url('/bg-login-register.jpg')]"
     >
       {children}
     </div>
   );
 }
- 
