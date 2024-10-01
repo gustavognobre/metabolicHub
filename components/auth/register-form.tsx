@@ -81,9 +81,7 @@ export default function RegisterForm() {
           Registro
         </TabsTrigger>
       </TabsList>
-      <TabsContent value="account">
-        <h1>teste</h1>
-      </TabsContent>
+
       <TabsContent value="register">
         <CardWrapper
           headerLabel="Crie a sua conta"
