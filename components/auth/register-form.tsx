@@ -223,6 +223,7 @@ export default function RegisterForm() {
               <FormField
                 control={form.control}
                 name="photo"
+                
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Perfil</FormLabel>

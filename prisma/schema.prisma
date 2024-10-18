@@ -23,7 +23,7 @@ model User {
   gender        Gender?
   password      String?    // Adicionando o campo de senha
   emailVerified DateTime? @map("email_verified")
-  image         String?
+  photo         String?
   accounts      Account[]
 }
 
