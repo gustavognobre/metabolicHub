@@ -232,7 +232,7 @@ export default function RegisterForm() {
                         {...field}
                         disabled={isPending}
                         aria-label="Sua foto de Perfil"
-                        type="file"
+                        placeholder="url da sua foto de perfil"
                       />
                     </FormControl>
                     <FormMessage />

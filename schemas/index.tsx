@@ -25,14 +25,10 @@ export const RegisterSchema = z.object({
     required_error: "Por favor, selecione seu gênero.",
   }),
   photo: z
-    .any()
+    .string()
     .optional() // Foto é opcional
-    .refine(
-      (file) => !file || imageTypes.includes(file?.type), // Se o arquivo existir, validamos o tipo
-      {
-        message: "O arquivo deve ser uma imagem do tipo JPEG, PNG ou GIF.",
-      }
-    ),
+    .refine(value => value !== undefined, { message: "Adicione uma URL." })
+,
   password: z
     .string()
     .min(8, {
